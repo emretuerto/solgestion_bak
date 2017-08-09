@@ -134,11 +134,11 @@ public class Application implements CommandLineRunner {
         Cliente cliente1 = clienteDao.findOne(1);
         Cliente cliente2 = clienteDao.findOne(2);
         Solarium solarium = solariumDao.findOne(1);
-
-        for (int i = 0; i < 10; i++) {
-            sesionServicio.insertarSesion(cliente2, solarium, 1.0d, 14);
-            sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
-        }
+//
+//        for (int i = 0; i < 10; i++) {
+//            sesionServicio.insertarSesion(cliente2, solarium, 1.0d, 14);
+//            sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
+//        }
 
 //cliente.setBono(bono1);
 //sesionServicio.insertarSesion(cliente, solarium, 1.5d, 14);

@@ -47,8 +47,8 @@ public class Bono implements Serializable {
     @Column(name = "MINUTOS")
     private Integer minutos;
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Cliente> clientesBono = new ArrayList<Cliente>();
+    @OneToMany(mappedBy = "bono", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Cliente>clientesBono = new ArrayList<Cliente>();
 
     public Bono() {
     }

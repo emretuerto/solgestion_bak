@@ -20,27 +20,32 @@ import org.hibernate.annotations.Cascade;
  *
  * @author eduardo
  */
-
 @Entity
 @Table(name = "TUBOS")
-public class Tubo  implements Serializable{
-    
+public class Tubo implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Integer id;
-    
+
     @Column(name = "CODIGO", length = 30, nullable = false, unique = true)
     private String codigo;
-    
-    @Column(name = "MARCA", length = 30, nullable = false, unique = true)
+
+    @Column(name = "MARCA", length = 30, nullable = false)
     private String marca;
-    
-    @Column(name = "MODELO", length = 30, nullable = false, unique = true)
+
+    @Column(name = "MODELO", length = 30, nullable = false)
     private String modelo;
-    
+
+    @Column(name = "DURACION", nullable = false)
+    private Integer duracion;
+
+    @Column(name = "PRECIO")
+    private Double precio;
+
     @ManyToOne
     @JoinColumn(name = "POTENCIA_ID")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -49,10 +54,12 @@ public class Tubo  implements Serializable{
     public Tubo() {
     }
 
-    public Tubo(String codigo, String marca, String modelo, Potencia potencia) {
+    public Tubo(String codigo, String marca, String modelo, Integer duracion, Double precio, Potencia potencia) {
         this.codigo = codigo;
         this.marca = marca;
         this.modelo = modelo;
+        this.duracion = duracion;
+        this.precio = precio;
         this.potencia = potencia;
     }
 
@@ -96,13 +103,25 @@ public class Tubo  implements Serializable{
         this.potencia = potencia;
     }
 
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
     @Override
     public String toString() {
-        return "Tubo{" + "codigo=" + codigo + ", marca=" + marca + ", modelo=" + modelo + ", potencia=" + potencia + '}';
+        return "Tubo{" + "codigo=" + codigo + ", marca=" + marca + ", modelo=" + modelo + ", duracion=" + duracion + ", precio=" + precio + ", potencia=" + potencia + '}';
     }
-    
-    
-    
-   
-    
+
 }

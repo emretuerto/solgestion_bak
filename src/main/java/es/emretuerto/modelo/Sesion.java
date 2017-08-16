@@ -31,8 +31,8 @@ public class Sesion implements Serializable {
     @Column(name = "ID")
     private Long id;
 
-    @Temporal(TemporalType.DATE)
-    @Column(updatable = false, name = "FECHA")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false, nullable = false, name = "FECHA")
     private Date fecha;
 
     @ManyToOne

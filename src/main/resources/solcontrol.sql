@@ -39,7 +39,7 @@ CREATE TABLE `bonos` (
 
 LOCK TABLES `bonos` WRITE;
 /*!40000 ALTER TABLE `bonos` DISABLE KEYS */;
-INSERT INTO `bonos` VALUES (1,'','000001',-152,NULL),(2,'\0','00002',NULL,98.5);
+INSERT INTO `bonos` VALUES (1,'','000001',-152,NULL),(2,'\0','00002',NULL,97.5);
 /*!40000 ALTER TABLE `bonos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,6 +116,30 @@ INSERT INTO `fototipos` VALUES (1,'I'),(2,'II'),(3,'III'),(4,'IV'),(5,'V'),(6,'V
 UNLOCK TABLES;
 
 --
+-- Table structure for table `potencias`
+--
+
+DROP TABLE IF EXISTS `potencias`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `potencias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(4) NOT NULL,
+  `potencia` varchar(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `potencias`
+--
+
+LOCK TABLES `potencias` WRITE;
+/*!40000 ALTER TABLE `potencias` DISABLE KEYS */;
+/*!40000 ALTER TABLE `potencias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sesiones`
 --
 
@@ -134,7 +158,7 @@ CREATE TABLE `sesiones` (
   KEY `FKekidpmmp1su6k357dc1o66v3q` (`solarium_id`),
   CONSTRAINT `FKekidpmmp1su6k357dc1o66v3q` FOREIGN KEY (`solarium_id`) REFERENCES `solariums` (`id`),
   CONSTRAINT `FKqm8apy3m4otfsg3s3uqfbolyo` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=95658 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=95659 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +167,7 @@ CREATE TABLE `sesiones` (
 
 LOCK TABLES `sesiones` WRITE;
 /*!40000 ALTER TABLE `sesiones` DISABLE KEYS */;
-INSERT INTO `sesiones` VALUES (1,14,'2017-08-08',2,1,1.5),(2,14,'2017-08-08',2,1,1),(3,14,'2017-08-08',1,1,1),(4,14,'2017-08-08',2,1,1),(5,14,'2017-08-08',1,1,1),(95618,14,'2017-08-08',2,1,1),(95619,14,'2017-08-08',1,1,1),(95620,14,'2017-08-08',2,1,1),(95621,14,'2017-08-08',1,1,1),(95622,14,'2017-08-08',2,1,1),(95623,14,'2017-08-08',1,1,1),(95624,14,'2017-08-08',2,1,1),(95625,14,'2017-08-08',1,1,1),(95626,14,'2017-08-08',2,1,1),(95627,14,'2017-08-08',1,1,1),(95628,14,'2017-08-08',2,1,1),(95629,14,'2017-08-08',1,1,1),(95630,14,'2017-08-08',2,1,1),(95631,14,'2017-08-08',1,1,1),(95632,14,'2017-08-08',2,1,1),(95633,14,'2017-08-08',1,1,1),(95634,14,'2017-08-08',2,1,1),(95635,14,'2017-08-08',1,1,1),(95636,14,'2017-08-08',2,1,1),(95637,14,'2017-08-08',1,1,1),(95638,14,'2017-08-09',2,1,1),(95639,14,'2017-08-09',1,1,1),(95640,14,'2017-08-09',2,1,1),(95641,14,'2017-08-09',1,1,1),(95642,14,'2017-08-09',2,1,1),(95643,14,'2017-08-09',1,1,1),(95644,14,'2017-08-09',2,1,1),(95645,14,'2017-08-09',1,1,1),(95646,14,'2017-08-09',2,1,1),(95647,14,'2017-08-09',1,1,1),(95648,14,'2017-08-09',2,1,1),(95649,14,'2017-08-09',1,1,1),(95650,14,'2017-08-09',2,1,1),(95651,14,'2017-08-09',1,1,1),(95652,14,'2017-08-09',2,1,1),(95653,14,'2017-08-09',1,1,1),(95654,14,'2017-08-09',2,1,1),(95655,14,'2017-08-09',1,1,1),(95656,14,'2017-08-09',2,1,1),(95657,14,'2017-08-09',1,1,1);
+INSERT INTO `sesiones` VALUES (1,14,'2017-08-08',2,1,1.5),(2,14,'2017-08-08',2,1,1),(3,14,'2017-08-08',1,1,1),(4,14,'2017-08-08',2,1,1),(5,14,'2017-08-08',1,1,1),(95618,14,'2017-08-08',2,1,1),(95619,14,'2017-08-08',1,1,1),(95620,14,'2017-08-08',2,1,1),(95621,14,'2017-08-08',1,1,1),(95622,14,'2017-08-08',2,1,1),(95623,14,'2017-08-08',1,1,1),(95624,14,'2017-08-08',2,1,1),(95625,14,'2017-08-08',1,1,1),(95626,14,'2017-08-08',2,1,1),(95627,14,'2017-08-08',1,1,1),(95628,14,'2017-08-08',2,1,1),(95629,14,'2017-08-08',1,1,1),(95630,14,'2017-08-08',2,1,1),(95631,14,'2017-08-08',1,1,1),(95632,14,'2017-08-08',2,1,1),(95633,14,'2017-08-08',1,1,1),(95634,14,'2017-08-08',2,1,1),(95635,14,'2017-08-08',1,1,1),(95636,14,'2017-08-08',2,1,1),(95637,14,'2017-08-08',1,1,1),(95638,14,'2017-08-09',2,1,1),(95639,14,'2017-08-09',1,1,1),(95640,14,'2017-08-09',2,1,1),(95641,14,'2017-08-09',1,1,1),(95642,14,'2017-08-09',2,1,1),(95643,14,'2017-08-09',1,1,1),(95644,14,'2017-08-09',2,1,1),(95645,14,'2017-08-09',1,1,1),(95646,14,'2017-08-09',2,1,1),(95647,14,'2017-08-09',1,1,1),(95648,14,'2017-08-09',2,1,1),(95649,14,'2017-08-09',1,1,1),(95650,14,'2017-08-09',2,1,1),(95651,14,'2017-08-09',1,1,1),(95652,14,'2017-08-09',2,1,1),(95653,14,'2017-08-09',1,1,1),(95654,14,'2017-08-09',2,1,1),(95655,14,'2017-08-09',1,1,1),(95656,14,'2017-08-09',2,1,1),(95657,14,'2017-08-09',1,1,1),(95658,14,'2017-08-16',2,1,1);
 /*!40000 ALTER TABLE `sesiones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,6 +223,37 @@ LOCK TABLES `tipo_clientes` WRITE;
 INSERT INTO `tipo_clientes` VALUES (1,'AAAA','Very Very Important'),(2,'A099','Cliente Solarium');
 /*!40000 ALTER TABLE `tipo_clientes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `tubos`
+--
+
+DROP TABLE IF EXISTS `tubos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tubos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codigo` varchar(30) NOT NULL,
+  `duracion` int(11) NOT NULL,
+  `marca` varchar(30) NOT NULL,
+  `modelo` varchar(30) NOT NULL,
+  `precio` double DEFAULT NULL,
+  `potencia_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_jbe525xrgp6atvcaqx52sn5ux` (`codigo`),
+  KEY `FKqn6uyglnbyy6rqk3lw40k8spt` (`potencia_id`),
+  CONSTRAINT `FKqn6uyglnbyy6rqk3lw40k8spt` FOREIGN KEY (`potencia_id`) REFERENCES `potencias` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tubos`
+--
+
+LOCK TABLES `tubos` WRITE;
+/*!40000 ALTER TABLE `tubos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tubos` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -209,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 18:23:40
+-- Dump completed on 2017-08-16 21:41:40

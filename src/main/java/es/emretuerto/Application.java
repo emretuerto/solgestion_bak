@@ -136,7 +136,7 @@ public class Application implements CommandLineRunner {
         Solarium solarium = solariumDao.findOne(1);
 //
 //        for (int i = 0; i < 10; i++) {
-//            sesionServicio.insertarSesion(cliente2, solarium, 1.0d, 14);
+           sesionServicio.insertarSesion(cliente2, solarium, 1.0d, 14);
 //            sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //        }
 

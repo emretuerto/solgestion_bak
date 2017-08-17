@@ -23,7 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "SOLARIUMS")
-public class Solarium implements Serializable {
+public class Maquina implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,13 +43,13 @@ public class Solarium implements Serializable {
     @Column(name = "SESION_ID")
     private List<Sesion> sesiones = new ArrayList<Sesion>();
     
-    public Solarium(String nombre, String marca, String modelo) {
+    public Maquina(String nombre, String marca, String modelo) {
         this.nombre = nombre;
         this.marca = marca;
         this.modelo = modelo;
     }
     
-    public Solarium() {
+    public Maquina() {
     }
     
     public Integer getId() {
@@ -91,21 +91,21 @@ public class Solarium implements Serializable {
     public void setSesiones(List<Sesion> sesiones) {
         this.sesiones = sesiones;
         sesiones.forEach((s) -> {
-            s.setSolarium(this);
+            s.setMaquina(this);
         });
     }
     
     public void addSesion(Sesion sesion) {
         if (!sesiones.contains(sesion)) {
             sesiones.add(sesion);
-            sesion.setSolarium(this);
+            sesion.setMaquina(this);
         }
     }
     
     public void removeSesion(Sesion sesion) {
         if (sesiones.contains(sesion)) {
             sesiones.remove(sesion);
-            sesion.setSolarium(null);
+            sesion.setMaquina(null);
         }
     }
     

@@ -6,7 +6,7 @@
 package es.emretuerto.servicios;
 
 import es.emretuerto.modelo.Cliente;
-import es.emretuerto.modelo.Solarium;
+import es.emretuerto.modelo.Maquina;
 
 /**
  *
@@ -14,6 +14,6 @@ import es.emretuerto.modelo.Solarium;
  */
 public interface SesionServicioInterface {
     
-    public void insertarSesion(Cliente cliente, Solarium solarium, Double sesionesConsumidas,Integer minutos);
+    public void insertarSesion(Cliente cliente, Maquina solarium, Double sesionesConsumidas,Integer minutos);
     
 }

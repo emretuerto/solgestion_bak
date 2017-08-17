@@ -6,6 +6,7 @@
 package es.emretuerto.modelo;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cascade;
 
 /**
@@ -21,8 +24,8 @@ import org.hibernate.annotations.Cascade;
  * @author eduardo
  */
 @Entity
-@Table(name = "TUBOS")
-public class Tubo implements Serializable {
+@Table(name = "LAMPARAS")
+public class Lampara implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -50,18 +53,34 @@ public class Tubo implements Serializable {
     @JoinColumn(name = "POTENCIA_ID")
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Potencia potencia;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false, nullable = false, name = "FECHA_INSTALACION")
+    private Date fechaInstalacion;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false, name = "FECHA_RETIRADA")
+    private Date fechaRetirada;
+        
+    
+    @Column(name = "MINUTOS_CONSUMIDOS")
+    private Integer minutosConsumidos;
 
-    public Tubo() {
+    public Lampara() {
     }
 
-    public Tubo(String codigo, String marca, String modelo, Integer duracion, Double precio, Potencia potencia) {
+    public Lampara(String codigo, String marca, String modelo, Integer duracion, Double precio, Potencia potencia, Date fechaInstalacion, Integer minutosConsumidos) {
         this.codigo = codigo;
         this.marca = marca;
         this.modelo = modelo;
         this.duracion = duracion;
         this.precio = precio;
         this.potencia = potencia;
+        this.fechaInstalacion = fechaInstalacion;
+        this.minutosConsumidos = 0;
     }
+
+    
 
     public Integer getId() {
         return id;

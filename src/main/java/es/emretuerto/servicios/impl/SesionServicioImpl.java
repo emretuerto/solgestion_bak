@@ -9,7 +9,7 @@ import es.emretuerto.dao.SesionRepository;
 import es.emretuerto.modelo.Bono;
 import es.emretuerto.modelo.Cliente;
 import es.emretuerto.modelo.Sesion;
-import es.emretuerto.modelo.Solarium;
+import es.emretuerto.modelo.Maquina;
 import es.emretuerto.servicios.BonoServicioInterface;
 import es.emretuerto.servicios.SesionServicioInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class SesionServicioImpl implements SesionServicioInterface{
 
     @Override
     @Transactional
-    public void insertarSesion(Cliente cliente, Solarium solarium,Double sesionesConsumidasBono, Integer minutosConsumidos) {
+    public void insertarSesion(Cliente cliente, Maquina solarium,Double sesionesConsumidasBono, Integer minutosConsumidos) {
         
         Sesion sesion = new Sesion(cliente, solarium,sesionesConsumidasBono, minutosConsumidos);
         

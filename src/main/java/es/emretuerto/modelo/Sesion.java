@@ -42,8 +42,8 @@ public class Sesion implements Serializable {
     
     @ManyToOne
     @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "SOLARIUM_ID", nullable = false)
-    private Solarium solarium;
+    @JoinColumn(name = "MAQUINA_ID", nullable = false)
+    private Maquina maquina;
 
     @Column(name = "SESIONES_CONSUMIDAS_BONO", nullable = true)
     private Double sesionesConsumidasBono;
@@ -51,10 +51,10 @@ public class Sesion implements Serializable {
     @Column(name = "DURACION", nullable = false)
     private Integer duracion;
 
-    public Sesion(Cliente cliente, Solarium solarium, Double sesionesConsumidasBono, Integer duracion) {
+    public Sesion(Cliente cliente, Maquina maquina, Double sesionesConsumidasBono, Integer duracion) {
         this.fecha = new Date();
         this.cliente = cliente;
-        this.solarium = solarium;
+        this.maquina = maquina;
         this.sesionesConsumidasBono = sesionesConsumidasBono;
         this.duracion = duracion;
     }
@@ -94,12 +94,12 @@ public class Sesion implements Serializable {
         this.duracion = duracion;
     }
 
-    public Solarium getSolarium() {
-        return solarium;
+    public Maquina getMaquina() {
+        return maquina;
     }
 
-    public void setSolarium(Solarium solarium) {
-        this.solarium = solarium;
+    public void setMaquina(Maquina solarium) {
+        this.maquina = solarium;
     }
 
     public Double getSesionesConsumidasBono() {
@@ -112,7 +112,7 @@ public class Sesion implements Serializable {
 
     @Override
     public String toString() {
-        return "Sesion{" + "fecha=" + fecha + ", cliente=" + cliente.getCodigoCliente() + ", solarium=" + solarium.getNombre() + ", sesionesConsumidasBono=" + sesionesConsumidasBono + ", duracion=" + duracion + '}';
+        return "Sesion{" + "fecha=" + fecha + ", cliente=" + cliente.getCodigoCliente() + ", maquina=" + maquina.getNombre() + ", sesionesConsumidasBono=" + sesionesConsumidasBono + ", duracion=" + duracion + '}';
     }
     
 

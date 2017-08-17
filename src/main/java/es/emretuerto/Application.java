@@ -4,11 +4,12 @@ import es.emretuerto.dao.BonoRepository;
 import es.emretuerto.dao.ClienteRepository;
 import es.emretuerto.dao.FototipoRepository;
 import es.emretuerto.dao.SesionRepository;
-import es.emretuerto.dao.SolariumRepository;
 import es.emretuerto.dao.TipoClienteRepository;
 import es.emretuerto.modelo.Bono;
 import es.emretuerto.modelo.Cliente;
-import es.emretuerto.modelo.Solarium;
+import es.emretuerto.modelo.Fototipo;
+import es.emretuerto.modelo.Maquina;
+import es.emretuerto.modelo.TipoCliente;
 import es.emretuerto.servicios.BonoServicioInterface;
 import es.emretuerto.servicios.SesionServicioInterface;
 import es.emretuerto.servicios.impl.ClienteServicioImpl;
@@ -19,8 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import es.emretuerto.dao.MaquinaRepository;
 
 //for jsr310 java 8 java.time.*
 //@EntityScan(
@@ -41,7 +44,7 @@ public class Application implements CommandLineRunner {
     ClienteRepository clienteDao;
 
     @Autowired
-    SolariumRepository solariumDao;
+    MaquinaRepository solariumDao;
 
     @Autowired
     TipoClienteRepository tipoClienteDao;
@@ -73,10 +76,11 @@ public class Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 //            System.out.println("DATASOURCE = " + dataSource);
-//        TipoCliente tipoCliente = new TipoCliente("A003", "Cliente V.I.P.");
+ //       TipoCliente tipoCliente = new TipoCliente("A003", "Cliente V.I.P.");
 //        tipoClienteDao.save(tipoCliente);
-//        TipoCliente tipoCliente = new TipoCliente("A099", "Cliente Solarium");
-//        Fototipo fototipo = fototipoDao.findOne(3);
+//        TipoCliente tipoCliente = new TipoCliente("A099", "Cliente Maquina");
+//        Fototipo fototipo = new Fototipo("III");
+//        Cliente cliente = new Cliente("CLI01", "Eduardo", "Martínez Retuerti", "13155640P", "mi direccion", "39010 ", "Santande", "Cantabria", new Date(), "942237363", "615303890", "emretuerto@gmail.com", fototipo, null   , tipoCliente, null);
 //Cliente cliente = new Cliente("CLI001", "Eduardo", "Martínez Retuerto", "13155640P", "C/ San Luis, 10", "39010", "Santander", "Cantabria", new Date(), "942237363", "615303890", "emretuerto@gmail.com", fototipo,tipoCliente);
 ////           Cliente cliente = new Cliente("Cristina", "Vega Santos", "20203177T", tipoCliente);
 ////   Cliente cliente = clienteDao.getOne(1);
@@ -93,10 +97,10 @@ public class Application implements CommandLineRunner {
 //        
 //
 //    clienteDao.save(cliente);
-//            Solarium solarium = new Solarium("Horizontal2", "Ergoline", "400 classic");
-//           solariumDao.save(solarium);
+//            Maquina solarium = new Maquina("Horizontal2", "Ergoline", "400 classic");
+//          solariumDao.save(solarium);
 //       Cliente cliente = clienteDao.getOne(1);
-//      Solarium solarium = solariumDao.getOne(1);
+//      Maquina solarium = solariumDao.getOne(1);
 //      Sesion sesion = new Sesion(cliente, solarium, 14);
 //       sesionDao.save(sesion);
 //       List<Sesion> sesiones= cliente.getSesionesCliente();
@@ -129,14 +133,15 @@ public class Application implements CommandLineRunner {
 //Bono bono2 = new Bono("00002", Boolean.FALSE,100.0d, null);
 //Bono bono1 = bonoDao.findByIdentificadorBono("000001");
 //Bono bono2 = bonoDao.findByIdentificadorBono("00002");
-//Solarium solarium = new Solarium("MAQUINA1", "ENCO", "22/1");
+//Solarium solarium = new Maquina("MAQUINA1", "ENCO", "22/1");
 //solariumDao.save(solarium);
-        Cliente cliente1 = clienteDao.findOne(1);
-        Cliente cliente2 = clienteDao.findOne(2);
-        Solarium solarium = solariumDao.findOne(1);
+       Cliente cliente1 = clienteDao.findOne(1);
+       cliente1.setFechaNacimiento(new Date(73, 3, 6));
+//        Cliente cliente2 = clienteDao.findOne(2);
+        Maquina solarium = solariumDao.findOne(1);
 //
 //        for (int i = 0; i < 10; i++) {
-           sesionServicio.insertarSesion(cliente2, solarium, 1.0d, 14);
+sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //            sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //        }
 

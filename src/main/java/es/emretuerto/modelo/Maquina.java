@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
  * @author eduardo
  */
 @Entity
-@Table(name = "SOLARIUMS")
+@Table(name = "MAQUINAS")
 public class Maquina implements Serializable {
     
     @Id
@@ -39,15 +40,24 @@ public class Maquina implements Serializable {
     @Column(name = "MODELO", length = 50, nullable = true, unique = false)
     private String modelo;
     
-    @OneToMany(mappedBy = "solarium", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "maquina", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Column(name = "SESION_ID")
     private List<Sesion> sesiones = new ArrayList<Sesion>();
+    
+    @OneToMany(mappedBy = "maquina", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(name = "LAMPARAINSTALADA_ID")
+    private List<LamparaInstalada> lamparasInstaladas= new ArrayList<LamparaInstalada>();
+    
+    
     
     public Maquina(String nombre, String marca, String modelo) {
         this.nombre = nombre;
         this.marca = marca;
         this.modelo = modelo;
     }
+    
+    
+    
     
     public Maquina() {
     }
@@ -107,6 +117,27 @@ public class Maquina implements Serializable {
             sesiones.remove(sesion);
             sesion.setMaquina(null);
         }
+    }
+    
+    public void addLamparaInstalada(LamparaInstalada lamparaInstalada){
+        if(!lamparasInstaladas.contains(lamparaInstalada)){
+            lamparasInstaladas.add(lamparaInstalada);
+            lamparaInstalada.setMaquina(this);
+        }
+    }
+    
+    public void removeLamparaInstalada(LamparaInstalada lamparaInstalada) {
+         if(lamparasInstaladas.contains(lamparaInstalada)){
+            lamparasInstaladas.remove(lamparaInstalada);
+            lamparaInstalada.setMaquina(this);
+        }
+    }
+    
+        public void setLamparasInstaladas(List<LamparaInstalada> lamparasInstaladas) {
+        this.lamparasInstaladas = lamparasInstaladas;
+        lamparasInstaladas.forEach((l) -> {
+            l.setMaquina(this);
+        });
     }
     
     @Override

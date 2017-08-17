@@ -135,13 +135,13 @@ public class Application implements CommandLineRunner {
 //Bono bono2 = bonoDao.findByIdentificadorBono("00002");
 //Solarium solarium = new Maquina("MAQUINA1", "ENCO", "22/1");
 //solariumDao.save(solarium);
-       Cliente cliente1 = clienteDao.findOne(1);
-       cliente1.setFechaNacimiento(new Date(73, 3, 6));
+//       Cliente cliente1 = clienteDao.findOne(1);
+//       cliente1.setFechaNacimiento(new Date(73, 3, 6));
 //        Cliente cliente2 = clienteDao.findOne(2);
-        Maquina solarium = solariumDao.findOne(1);
+//        Maquina solarium = solariumDao.findOne(1);
 //
 //        for (int i = 0; i < 10; i++) {
-sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
+//sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //            sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //        }
 
@@ -149,6 +149,8 @@ sesionServicio.insertarSesion(cliente1, solarium, 1.0d, 14);
 //sesionServicio.insertarSesion(cliente, solarium, 1.5d, 14);
 //bonoService.recargaMinutos(bono1, 35);
 //bonoService.recargaSesiones(bono2, 50d);
+
+
     }
 
 }

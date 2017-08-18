@@ -29,16 +29,16 @@ public class Potencia implements Serializable{
     @Column(name = "ID")
     private Integer id;
     
-    @Column(name = "CODIGO", nullable = false, length = 4)
+    @Column(name = "CODIGO", unique = true, nullable = false, length = 4)
     private String codigo;
  
     @Column(name = "POTENCIA", nullable = false, length = 4)
-    private String potencia;
+    private Integer potencia;
 
     public Potencia() {
     }
 
-    public Potencia(String codigo, String potencia) {
+    public Potencia(String codigo, Integer potencia) {
         this.codigo = codigo;
         this.potencia = potencia;
     }
@@ -59,11 +59,11 @@ public class Potencia implements Serializable{
         this.codigo = codigo;
     }
 
-    public String getPotencia() {
+    public Integer getPotencia() {
         return potencia;
     }
 
-    public void setPotencia(String potencia) {
+    public void setPotencia(Integer potencia) {
         this.potencia = potencia;
     }
 

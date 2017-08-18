@@ -63,6 +63,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     SesionServicioInterface sesionServicio;
+    
+    @Autowired
+    GeneraDatos generaDatos;
 
     public static void main(String[] args) throws Exception {
         // SpringApplication.run(Application.class, args);
@@ -150,6 +153,10 @@ public class Application implements CommandLineRunner {
 //bonoService.recargaMinutos(bono1, 35);
 //bonoService.recargaSesiones(bono2, 50d);
 
+
+//generaDatos.generaPotencias();
+//generaDatos.generaLamparas();
+//generaDatos.generarMaquinas();
 
     }
 

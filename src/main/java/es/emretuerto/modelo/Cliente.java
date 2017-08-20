@@ -38,6 +38,9 @@ public class Cliente implements Serializable {
     @Column(name = "CODIGO_CLIENTE", length = 10, nullable = false, unique = true)
     private String codigoCliente;
 
+    @Column(name = "CODIGO_BARRAS", length = 13, unique = true, nullable = true)
+    private String codigoBarras;
+
     @Column(name = "NOMBRE", length = 30, nullable = false)
     private String nombre;
 
@@ -94,8 +97,9 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(String codigoCliente, String nombre, String apellidos, String nif, String direccion, String codigoPostal, String localidad, String provincia, Date fechaNacimiento, String telefonoFijo, String telefonoMovil, String email, Fototipo fototipo, List<Sesion> sesionesCliente, TipoCliente tipoCliente, Bono bono) {
+    public Cliente(String codigoCliente, String codigoBarras, String nombre, String apellidos, String nif, String direccion, String codigoPostal, String localidad, String provincia, Date fechaNacimiento, String telefonoFijo, String telefonoMovil, String email, Fototipo fototipo, List<Sesion> sesionesCliente, TipoCliente tipoCliente, Bono bono) {
         this.codigoCliente = codigoCliente;
+        this.codigoBarras = codigoBarras;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -127,6 +131,14 @@ public class Cliente implements Serializable {
 
     public void setCodigoCliente(String codigoCliente) {
         this.codigoCliente = codigoCliente;
+    }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
     }
 
     public String getNombre() {

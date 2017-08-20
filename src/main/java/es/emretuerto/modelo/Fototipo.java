@@ -54,6 +54,4 @@ public class Fototipo implements Serializable {
         return "Fototipo{" + "fototipo=" + fototipo + '}';
     }
 
- 
-    
 }

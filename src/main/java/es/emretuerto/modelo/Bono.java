@@ -38,6 +38,9 @@ public class Bono implements Serializable {
     @Column(name = "IDENTIFICADOR_BONO", length = 10, nullable = false, unique = true)
     private String identificadorBono;
 
+    @Column(name = "CODIGO_BARRAS", length = 13, unique = true, nullable = true)
+    private String codigoBarras;
+
     @Column(name = "ES_DE_MINUTOS")
     private Boolean esDeMinutos;
 
@@ -48,15 +51,16 @@ public class Bono implements Serializable {
     private Integer minutos;
 
     @OneToMany(mappedBy = "bono", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Cliente>clientesBono = new ArrayList<Cliente>();
+    private List<Cliente> clientesBono = new ArrayList<Cliente>();
 
     public Bono() {
     }
 
     ;
 
-    public Bono(String identificadorBono, Boolean esDeMinutos, Double sesiones, Integer minutos) {
+    public Bono(String identificadorBono, String codigoBarras, Boolean esDeMinutos, Double sesiones, Integer minutos) {
         this.identificadorBono = identificadorBono;
+        this.codigoBarras = codigoBarras;
         this.esDeMinutos = esDeMinutos;
         this.sesiones = sesiones;
         this.minutos = minutos;
@@ -76,6 +80,14 @@ public class Bono implements Serializable {
 
     public void setIdentificadorBono(String identificadorBono) {
         this.identificadorBono = identificadorBono;
+    }
+
+    public String getCodigoBarras() {
+        return codigoBarras;
+    }
+
+    public void setCodigoBarras(String codigoBarras) {
+        this.codigoBarras = codigoBarras;
     }
 
     public Boolean getEsDeMinutos() {

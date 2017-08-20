@@ -54,16 +54,38 @@ public class LamparaInstalada implements Serializable {
 
     @Column(name = "MINUTOS_CONSUMIDOS")
     private Integer minutosConsumidos;
-    
+
     @Column(name = "CANTIDAD")
     private Integer cantidad;
 
-    public LamparaInstalada(Maquina maquina, Lampara lampara, Date fechaInstalacion, Integer minutosConsumidos, Integer cantidad) {
+    public LamparaInstalada(Maquina maquina, Lampara lampara, Date fechaInstalacion, Integer cantidad) {
         this.maquina = maquina;
         this.lampara = lampara;
         this.fechaInstalacion = fechaInstalacion;
         this.minutosConsumidos = 0;
-        this.cantidad=cantidad;
+        this.cantidad = cantidad;
+    }
+
+    public LamparaInstalada(Lampara lampara, Date fechaInstalacion, Integer cantidad) {
+        this.lampara = lampara;
+        this.fechaInstalacion = fechaInstalacion;
+        this.cantidad = cantidad;
+        this.minutosConsumidos = 0;
+    }
+
+    public LamparaInstalada(Maquina maquina, Lampara lampara, Integer cantidad) {
+        this.maquina = maquina;
+        this.lampara = lampara;
+        this.cantidad = cantidad;
+        this.minutosConsumidos = 0;
+        this.fechaInstalacion = new Date();
+    }
+
+    public LamparaInstalada(Lampara lampara, Integer cantidad) {
+        this.lampara = lampara;
+        this.cantidad = cantidad;
+        this.minutosConsumidos = 0;
+        this.fechaInstalacion = new Date();
     }
 
     public LamparaInstalada() {
@@ -171,5 +193,4 @@ public class LamparaInstalada implements Serializable {
         return "LamparaInstalada{" + "maquina=" + maquina.getNombre() + ", lampara=" + lampara.getCodigo() + ", fechaInstalacion=" + fechaInstalacion + ", fechaRetirada=" + fechaRetirada + ", minutosConsumidos=" + minutosConsumidos + ", cantidad=" + cantidad + '}';
     }
 
-    
 }

@@ -6,12 +6,18 @@
 package es.emretuerto.dao;
 
 import es.emretuerto.modelo.LamparaInstalada;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  *
  * @author eduardo
  */
 public interface LamparaInstaladaRepository extends JpaRepository<LamparaInstalada, Integer>{
+    
+        @Query("select li from LamparaInstalada where li.fechaRetirada is not null and li.maquina.id = ?1")
+    List<LamparaInstalada> obtenerLamparasActivas(Integer id);
+  
     
 }

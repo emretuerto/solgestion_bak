@@ -3,7 +3,7 @@ package es.emretuerto;
 import es.emretuerto.dao.BonoRepository;
 import es.emretuerto.dao.ClienteRepository;
 import es.emretuerto.dao.FototipoRepository;
-import es.emretuerto.dao.LamparaRepository;
+import es.emretuerto.dao.LamparaInstaladaRepository;
 import es.emretuerto.dao.SesionRepository;
 import es.emretuerto.dao.TipoClienteRepository;
 import es.emretuerto.modelo.Bono;
@@ -69,6 +69,9 @@ public class Application implements CommandLineRunner {
 
     @Autowired
     GeneraDatos generaDatos;
+
+    @Autowired
+    LamparaInstaladaRepository lamparaInstaladaDao;
 
     @Autowired
     MaquinaRepository maquinaDao;

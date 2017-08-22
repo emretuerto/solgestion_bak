@@ -4,6 +4,7 @@ import es.emretuerto.dao.BonoRepository;
 import es.emretuerto.dao.ClienteRepository;
 import es.emretuerto.dao.FototipoRepository;
 import es.emretuerto.dao.LamparaInstaladaRepository;
+import es.emretuerto.dao.LamparaRepository;
 import es.emretuerto.dao.SesionRepository;
 import es.emretuerto.dao.TipoClienteRepository;
 import es.emretuerto.modelo.Bono;
@@ -27,6 +28,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import es.emretuerto.dao.MaquinaRepository;
 import es.emretuerto.modelo.Lampara;
 import es.emretuerto.modelo.LamparaInstalada;
+import java.util.List;
 
 //for jsr310 java 8 java.time.*
 //@EntityScan(
@@ -90,19 +92,22 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-    //     rellenarBaseDatos();
+//         rellenarBaseDatos();
         
+
+List<LamparaInstalada> lamparasActivas = lamparaInstaladaDao.obtenerLamparasActivas(2);
+        System.out.println(lamparasActivas);
         
-        Maquina maquina1 = maquinaDao.findOne(1);
-        Maquina maquina2 = maquinaDao.findOne(2);
-        System.out.println("********************");
-        System.out.println("MAQUINA 1");
-        System.out.println("********************");
-        System.out.println(maquina1.getLamparasInstaladas());
-        System.out.println("********************");
-        System.out.println("MAQUINA 2");
-        System.out.println("********************");
-        System.out.println(maquina2.getLamparasInstaladas());
+//        Maquina maquina1 = maquinaDao.findOne(1);
+//        Maquina maquina2 = maquinaDao.findOne(2);
+//        System.out.println("********************");
+//        System.out.println("MAQUINA 1");
+//        System.out.println("********************");
+//        System.out.println(maquina1.getLamparasInstaladas());
+//        System.out.println("********************");
+//        System.out.println("MAQUINA 2");
+//        System.out.println("********************");
+//        System.out.println(maquina2.getLamparasInstaladas());
 
     }
 

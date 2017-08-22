@@ -15,9 +15,9 @@ import org.springframework.data.jpa.repository.Query;
  * @author eduardo
  */
 public interface LamparaInstaladaRepository extends JpaRepository<LamparaInstalada, Integer>{
-    
-        @Query("select li from LamparaInstalada where li.fechaRetirada is not null and li.maquina.id = ?1")
-    List<LamparaInstalada> obtenerLamparasActivas(Integer id);
+ 
+        @Query("select li from LamparaInstalada li where li.fechaRetirada is null and li.maquina.id = ?1")
+    List<LamparaInstalada> obtenerLamparasActivas(Integer idmaquina);
   
     
 }

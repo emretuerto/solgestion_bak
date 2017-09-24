@@ -12,23 +12,28 @@ import es.emretuerto.servicios.MaquinaServicioInterface;
  *
  * @author eduardo
  */
-public class MaquinaServicioImpl implements MaquinaServicioInterface{
+public class MaquinaServicioImpl implements MaquinaServicioInterface {
 
     @Override
     public void incrementaContadorTotal(Maquina maquina, Integer minutos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        maquina.setContadorTotal(minutos + maquina.getContadorTotal());
+
     }
 
     @Override
     public void incrementaContadorParcial(Maquina maquina, Integer minutos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        maquina.setContadorParcial(minutos + maquina.getContadorParcial());
+
     }
 
     @Override
     public void incrementarContadores(Maquina maquina, Integer minutosTotal, Integer minutosParcial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        this.incrementaContadorParcial(maquina, minutosParcial);
+        this.incrementaContadorTotal(maquina, minutosTotal);
+
     }
-    
-    
-    
+
 }

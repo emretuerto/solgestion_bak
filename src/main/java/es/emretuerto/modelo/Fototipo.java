@@ -51,7 +51,7 @@ public class Fototipo implements Serializable {
 
     @Override
     public String toString() {
-        return "Fototipo{" + "fototipo=" + fototipo + '}';
+        return this.getFototipo();
     }
 
 }
